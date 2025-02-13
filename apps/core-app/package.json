@@ -11,11 +11,13 @@
 		"preview": "rsbuild preview"
 	},
 	"dependencies": {
+		"@module-federation/enhanced": "^0.8.11",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
+		"@module-federation/rsbuild-plugin": "^0.8.11",
 		"@rsbuild/core": "^1.2.4",
 		"@rsbuild/plugin-react": "^1.1.0",
 		"@types/react": "^19.0.8",
