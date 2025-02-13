@@ -1,12 +1,11 @@
 import "./App.css";
-import { Button } from "design_system/button";
 
 const App = () => {
 	return (
 		<div className="content">
-			<h1>Music Library</h1>
+			<h1>Rsbuild with React</h1>
 			<p>Start building amazing things with Rsbuild.</p>
-			<Button>Click me</Button>
+			<h1 className="text-3xl font-bold underline">Hello world!</h1>
 		</div>
 	);
 };

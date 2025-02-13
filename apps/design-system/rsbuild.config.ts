@@ -6,17 +6,21 @@ export default defineConfig({
 	plugins: [
 		pluginReact(),
 		pluginModuleFederation({
-			name: "music_library",
-			remotes: {
-				design_system: "design_system@http://localhost:2000/mf-manifest.json",
-			},
+			name: "design_system",
 			exposes: {
-				"./button": "./src/components/Button",
+				"./button": "./src/components/ui/button.tsx",
 			},
 			shared: ["react", "react-dom"],
 		}),
 	],
+	module: {
+		rules: {
+			test: /\.css$/,
+			use: ["postcss-loader"],
+			type: "css",
+		},
+	},
 	server: {
-		port: 4000,
+		port: 2000,
 	},
 });
