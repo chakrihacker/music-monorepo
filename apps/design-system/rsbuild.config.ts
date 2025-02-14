@@ -11,8 +11,11 @@ export default defineConfig({
 				"./styles/core.css": "./src/index.css",
 				"./button": "./src/components/ui/button.tsx",
 				"./searchbar": "./src/components/ui/searchbar.tsx",
+				"./select": "./src/components/ui/select.tsx",
+				"./table": "./src/components/ui/table.tsx",
+				"./card": "./src/components/ui/card.tsx",
 			},
-			shared: ["react", "react-dom"],
+			shared: ["react", "react-dom", "tailwindcss", "postcss-loader"],
 		}),
 	],
 	module: {

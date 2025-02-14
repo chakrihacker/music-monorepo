@@ -7,7 +7,6 @@ export default defineConfig({
 		pluginReact(),
 		pluginModuleFederation({
 			name: "music_library",
-			manifest: true,
 			remotes: {
 				design_system: "design_system@http://localhost:2000/mf-manifest.json",
 			},

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import "../../App.css";
+import "../../index.css";
 
 export default function SearchBar({
 	onSearch,
@@ -19,7 +19,7 @@ export default function SearchBar({
 	};
 
 	return (
-		<div className="flex items-center">
+		<div className="flex items-center space-x-2">
 			<Input
 				type="text"
 				className="px-3 py-2 w-80"
