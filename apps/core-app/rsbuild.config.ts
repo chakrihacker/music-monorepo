@@ -9,6 +9,7 @@ export default defineConfig({
 			name: "core_app",
 			remotes: {
 				music_library: "music_library@http://localhost:4000/mf-manifest.json",
+				design_system: "design_system@http://localhost:2000/mf-manifest.json",
 			},
 			shared: ["react", "react-dom"],
 		}),

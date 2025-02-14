@@ -8,7 +8,9 @@ export default defineConfig({
 		pluginModuleFederation({
 			name: "design_system",
 			exposes: {
+				"./styles/core.css": "./src/index.css",
 				"./button": "./src/components/ui/button.tsx",
+				"./searchbar": "./src/components/ui/searchbar.tsx",
 			},
 			shared: ["react", "react-dom"],
 		}),
