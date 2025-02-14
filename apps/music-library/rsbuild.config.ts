@@ -7,11 +7,14 @@ export default defineConfig({
 		pluginReact(),
 		pluginModuleFederation({
 			name: "music_library",
+			manifest: true,
 			remotes: {
 				design_system: "design_system@http://localhost:2000/mf-manifest.json",
 			},
 			exposes: {
-				"./button": "./src/components/Button",
+				"./songs-list": "./src/Containers/SongsList",
+				// "./artists-list": "./src/Containers/ArtistsList",
+				// "./albums-list": "./src/Containers/AlbumsList",
 			},
 			shared: ["react", "react-dom"],
 		}),

@@ -1,3 +1,3 @@
 
-    export type RemoteKeys = 'music_library/button';
-    type PackageType<T> = T extends 'music_library/button' ? typeof import('music_library/button') :any;
+    export type RemoteKeys = 'music_library/songs-list';
+    type PackageType<T> = T extends 'music_library/songs-list' ? typeof import('music_library/songs-list') :any;

@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "pnpm -filter \"music-*\" dev",
+		"build": "pnpm -filter \"music-*\" build",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
