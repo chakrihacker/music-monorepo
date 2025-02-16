@@ -1,11 +1,35 @@
+"use client";
 import "./App.css";
-import { SongsList } from "music_library/songs-list";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { AuthProvider, useAuth } from "./auth";
+import { routeTree } from "./routes";
+
+const router = createRouter({
+	routeTree,
+	defaultPreload: "intent",
+	scrollRestoration: true,
+	context: {
+		auth: undefined,
+	},
+});
+
+// Register things for typesafety
+declare module "@tanstack/react-router" {
+	interface Register {
+		router: typeof router;
+	}
+}
+
+function InnerApp() {
+	const auth = useAuth();
+	return <RouterProvider router={router} context={{ ...auth }} />;
+}
 
 const App = () => {
 	return (
-		<div className="flex flex-col h-dvh justify-center items-center">
-			<SongsList />
-		</div>
+		<AuthProvider>
+			<InnerApp />
+		</AuthProvider>
 	);
 };
 

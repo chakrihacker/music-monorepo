@@ -11,7 +11,20 @@ export default defineConfig({
 				music_library: "music_library@http://localhost:4000/mf-manifest.json",
 				design_system: "design_system@http://localhost:2000/mf-manifest.json",
 			},
-			shared: ["react", "react-dom", "tailwindcss", "postcss-loader"],
+			shared: {
+				react: {
+					singleton: true,
+				},
+				"react-dom": {
+					singleton: true,
+				},
+				tailwindcss: {
+					singleton: true,
+				},
+				"postcss-loader": {
+					singleton: true,
+				},
+			},
 		}),
 	],
 	module: {

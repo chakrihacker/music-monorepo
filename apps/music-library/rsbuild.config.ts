@@ -15,7 +15,20 @@ export default defineConfig({
 				// "./artists-list": "./src/Containers/ArtistsList",
 				// "./albums-list": "./src/Containers/AlbumsList",
 			},
-			shared: ["react", "react-dom"],
+			shared: {
+				react: {
+					singleton: true,
+				},
+				"react-dom": {
+					singleton: true,
+				},
+				tailwindcss: {
+					singleton: true,
+				},
+				"postcss-loader": {
+					singleton: true,
+				},
+			},
 		}),
 	],
 	server: {

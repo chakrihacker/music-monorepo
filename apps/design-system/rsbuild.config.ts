@@ -15,7 +15,20 @@ export default defineConfig({
 				"./table": "./src/components/ui/table.tsx",
 				"./card": "./src/components/ui/card.tsx",
 			},
-			shared: ["react", "react-dom", "tailwindcss", "postcss-loader"],
+			shared: {
+				react: {
+					singleton: true,
+				},
+				"react-dom": {
+					singleton: true,
+				},
+				tailwindcss: {
+					singleton: true,
+				},
+				"postcss-loader": {
+					singleton: true,
+				},
+			},
 		}),
 	],
 	module: {
