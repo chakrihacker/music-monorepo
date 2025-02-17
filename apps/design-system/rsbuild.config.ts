@@ -14,6 +14,7 @@ export default defineConfig({
 				"./select": "./src/components/ui/select.tsx",
 				"./table": "./src/components/ui/table.tsx",
 				"./card": "./src/components/ui/card.tsx",
+				"./input": "./src/components/ui/input.tsx",
 			},
 			shared: {
 				react: {

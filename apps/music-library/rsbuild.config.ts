@@ -12,8 +12,9 @@ export default defineConfig({
 			},
 			exposes: {
 				"./songs-list": "./src/Containers/SongsList",
-				// "./artists-list": "./src/Containers/ArtistsList",
-				// "./albums-list": "./src/Containers/AlbumsList",
+				"./add-song": "./src/Containers/AddSong",
+				"./song": "./src/types/Song",
+				"./seeds/songs": "./src/seeds/songs",
 			},
 			shared: {
 				react: {
@@ -31,6 +32,13 @@ export default defineConfig({
 			},
 		}),
 	],
+	module: {
+		rules: {
+			test: /\.css$/,
+			use: ["postcss-loader"],
+			type: "css",
+		},
+	},
 	server: {
 		port: 4000,
 	},

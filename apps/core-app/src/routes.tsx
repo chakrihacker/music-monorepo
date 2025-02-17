@@ -1,5 +1,6 @@
 import { createRootRoute, createRoute, redirect } from "@tanstack/react-router";
 import { Layout } from "./layout";
+import { AddSong } from "./pages/AddSong";
 import { Auth } from "./pages/Auth";
 import { Home } from "./pages/Home";
 import { Songs } from "./pages/SongsList";
@@ -19,7 +20,6 @@ const songsRoute = createRoute({
 	path: "/songs",
 	component: Songs,
 	beforeLoad: ({ context }) => {
-		console.log({ context: context.isAuthenticated });
 		if (!context.isAuthenticated) {
 			throw redirect({
 				to: "/login",
@@ -28,6 +28,22 @@ const songsRoute = createRoute({
 				},
 			});
 		}
+	},
+});
+
+const addSongRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: "/songs/add",
+	component: AddSong,
+	beforeLoad: ({ context }) => {
+		// if (!context?.user?.role !== "admin") {
+		// 	throw redirect({
+		// 		to: "/login",
+		// 		search: {
+		// 			redirect: location.href,
+		// 		},
+		// 	});
+		// }
 	},
 });
 
@@ -56,6 +72,7 @@ const pageNotFoundRoute = createRoute({
 export const routeTree = rootRoute.addChildren([
 	indexRoute,
 	songsRoute,
+	addSongRoute,
 	loginRoute,
 	pageNotFoundRoute,
 ]);

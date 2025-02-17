@@ -1,6 +1,7 @@
 "use client";
 import "./App.css";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { SongsProvider } from "./SongsProvider";
 import { AuthProvider, useAuth } from "./auth";
 import { routeTree } from "./routes";
 
@@ -28,7 +29,9 @@ function InnerApp() {
 const App = () => {
 	return (
 		<AuthProvider>
-			<InnerApp />
+			<SongsProvider>
+				<InnerApp />
+			</SongsProvider>
 		</AuthProvider>
 	);
 };

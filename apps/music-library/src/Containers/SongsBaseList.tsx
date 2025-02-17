@@ -1,10 +1,10 @@
+import { Button } from "design_system/button";
 import {
 	Table,
 	type TableColumnsType,
 	type TableProps,
 } from "design_system/table";
 import { useState } from "react";
-import { songs } from "../seeds/songs";
 import type { Song } from "../types/Song";
 
 type OnChange = NonNullable<TableProps<Song>["onChange"]>;
@@ -13,7 +13,18 @@ type Filters = Parameters<OnChange>[1];
 type GetSingle<T> = T extends (infer U)[] ? U : never;
 type Sorts = GetSingle<Parameters<OnChange>[2]>;
 
-export const SongsBaseList = () => {
+export const SongsBaseList = ({
+	songs,
+	isAdmin,
+	deleteSong,
+	editSong,
+}: {
+	songs: Song[];
+	isAdmin: boolean;
+
+	deleteSong: (id: string) => void;
+	editSong: (id: string, updatedSong: Partial<Song>) => void;
+}) => {
 	const [filteredInfo, setFilteredInfo] = useState<Filters>({});
 	const [sortedInfo, setSortedInfo] = useState<Sorts>({});
 
@@ -63,6 +74,23 @@ export const SongsBaseList = () => {
 		},
 	];
 
+	if (isAdmin) {
+		// columns.push({
+		// 	title: "Edit",
+		// 	dataIndex: "",
+		// 	key: "edit",
+		// 	render: (_, record) => <Button>Edit</Button>,
+		// });
+		columns.push({
+			title: "Delete",
+			dataIndex: "",
+			key: "delete",
+			render: (_, record) => (
+				<Button onClick={() => deleteSong(record.id)}>Delete</Button>
+			),
+		});
+	}
+
 	const onChange: TableProps<Song>["onChange"] = (
 		pagination,
 		filters,
@@ -72,15 +100,6 @@ export const SongsBaseList = () => {
 		console.log("params", pagination, filters, sorter, extra);
 		setFilteredInfo(filters);
 		setSortedInfo(sorter as Sorts);
-	};
-
-	const clearFilters = () => {
-		setFilteredInfo({});
-	};
-
-	const clearAll = () => {
-		setFilteredInfo({});
-		setSortedInfo({});
 	};
 
 	return (
